@@ -52,8 +52,10 @@ header p {
 }
 
 main {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  column-gap: 30px;
   width: 100%;
 }
 
@@ -63,10 +65,10 @@ main {
   flex-direction: column;
   justify-content: space-between;
   min-width: 294px;
-  max-width: 320px;
+  max-width: 340px;
   height: 224px;
   padding: 30px;
-  margin: 10px 0;
+  margin: 15px 0;
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 2px 20px 0px var(--grayish-blue);
@@ -81,19 +83,19 @@ main {
   background-color: black;
 }
 
-.card-color-item.cyan {
+#cyan .card-color-item {
   background-color: var(--cyan);
 }
 
-.card-color-item.red {
+#red .card-color-item {
   background-color: var(--red);
 }
 
-.card-color-item.orange {
+#orange .card-color-item {
   background-color: var(--orange);
 }
 
-.card-color-item.blue {
+#blue .card-color-item {
   background-color: var(--blue);
 }
 
@@ -131,5 +133,37 @@ main {
 @media (min-width: 768px) {
   h1 {
     font-size: 3.6rem;
+  }
+
+  .card {
+    height: 250px;
+  }
+}
+
+@media (min-width: 1140px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(3, 340px);
+    grid-template-rows: repeat(4, 140px);
+  }
+
+  #cyan.card {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+
+  #red.card {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+
+  #orange.card {
+    grid-column: 2 / 3;
+    grid-row: 3 / 5;
+  }
+
+  #blue.card {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
   }
 }
